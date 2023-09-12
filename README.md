@@ -1,3 +1,7 @@
+# Little App Store
+
+This is a small sample of how to add products using React router together with Styled components
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -6,6 +6,13 @@ import Store from './components/Store';
 import Error404 from './components/Error404';
 
 const App = () => {
+	const products = [
+        {id: 1, name: 'Product 1', price: 100},
+        {id: 2, name: 'Product 2', price: 110},
+        {id: 3, name: 'Product 3', price: 120},
+        {id: 4, name: 'Product 4', price: 130}
+    ];
+
 	return (
 		<Container>
 			<Menu>
@@ -18,7 +25,7 @@ const App = () => {
 					<Route path="*" element={<Error404 />} />
 					<Route path="/" element={<Home />} />
 					<Route path="/blog" element={<Blog />} />
-					<Route path="/store" element={<Store />} />
+					<Route path="/store" element={<Store products={products} />} />
 				</Routes>
 			</main>
 			<aside>

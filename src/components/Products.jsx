@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Products = ({products}) => {
+const Products = ({products, addToCart}) => {
     return (
         <div>
             <h3>Products</h3>
@@ -9,7 +9,11 @@ const Products = ({products}) => {
                     return (
                         <Product key={index}>
                             <p>{product.name}</p>
-                            <Button>Buy</Button>
+                            <Button
+								onClick={() =>addToCart(product.id, product.name, product.price)}
+							>
+								Add to Cart
+							</Button>
                         </Product>
                     );
                 })}

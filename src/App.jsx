@@ -17,6 +17,21 @@ const App = () => {
 
     const [cart, setCart] = useState([]);
 
+	const addToCart = (productId, name, price) => {
+		if(cart.length === 0){
+			setCart([{id: productId, name: name, qty: 1, price: price }]);
+		} else {
+			const newCart = [...cart];
+			const foundItem = newCart.findIndex((item) => item.id === productId);
+			if(foundItem === -1){
+				newCart.push({id: productId, name: name, qty: 1, price: price });
+			} else {
+				newCart[foundItem].qty++;
+			}
+			setCart(newCart);
+		}
+	};
+
 	return (
 		<Container>
 			<Menu>
@@ -29,7 +44,12 @@ const App = () => {
 					<Route path="*" element={<Error404 />} />
 					<Route path="/" element={<Home />} />
 					<Route path="/blog" element={<Blog />} />
-					<Route path="/store" element={<Store products={products} />} />
+					<Route path="/store" element={
+						<Store 
+							products={products}
+							addToCart={addToCart}
+						/>}	
+					/>
 				</Routes>
 			</main>
 			<aside>

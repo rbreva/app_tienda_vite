@@ -4,6 +4,8 @@ import Home from './components/Home';
 import Blog from './components/Blog';
 import Store from './components/Store';
 import Error404 from './components/Error404';
+import Cart from './components/Cart';
+import {useState} from "react";
 
 const App = () => {
 	const products = [
@@ -12,6 +14,8 @@ const App = () => {
         {id: 3, name: 'Product 3', price: 120},
         {id: 4, name: 'Product 4', price: 130}
     ];
+
+    const [cart, setCart] = useState([]);
 
 	return (
 		<Container>
@@ -29,7 +33,7 @@ const App = () => {
 				</Routes>
 			</main>
 			<aside>
-				<h3>Sidebar</h3>
+				<Cart cart={cart} />
 			</aside>
 		</Container>
 	);
